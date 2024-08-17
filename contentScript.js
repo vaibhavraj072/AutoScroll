@@ -1,20 +1,52 @@
-function autoScroll() {
-    window.scrollBy(0, -100); // Scroll up by 100 pixels
+let platform = '';
+let videoElement = null;
+
+function detectPlatform() {
+  if (window.location.hostname.includes('instagram.com')) {
+    platform = 'instagram';
+  } else if (window.location.hostname.includes('youtube.com')) {
+    platform = 'youtube';
   }
-  
-  function detectPlatformAndStart() {
-    let interval;
-  
-    if (window.location.hostname.includes("instagram.com")) {
-      interval = 5000; // Instagram Reels: Scroll every 5 seconds
-    } else if (window.location.hostname.includes("youtube.com")) {
-      interval = 7000; // YouTube Shorts: Scroll every 7 seconds
-    }
-  
-    if (interval) {
-      setInterval(autoScroll, interval);
-    }
+}
+
+function scrollUp() {
+  window.scrollBy(0, -window.innerHeight); // Scroll up by one viewport height
+}
+
+function handleInstagramReels() {
+  // Instagram Reels: Detect video element and monitor for changes
+  videoElement = document.querySelector('video');
+  if (videoElement) {
+    videoElement.addEventListener('ended', () => {
+      scrollUp();
+    });
   }
-  
-  detectPlatformAndStart();
-  
+}
+
+function handleYouTubeShorts() {
+  // YouTube Shorts: Detect video element and monitor for changes
+  videoElement = document.querySelector('video');
+  if (videoElement) {
+    videoElement.addEventListener('ended', () => {
+      scrollUp();
+    });
+  }
+}
+
+function initialize() {
+  detectPlatform();
+  if (platform === 'instagram') {
+    handleInstagramReels();
+  } else if (platform === 'youtube') {
+    handleYouTubeShorts();
+  }
+}
+
+initialize();
+
+// Clean up event listeners on page unload
+window.addEventListener('beforeunload', () => {
+  if (videoElement) {
+    videoElement.removeEventListener('ended', scrollUp);
+  }
+});

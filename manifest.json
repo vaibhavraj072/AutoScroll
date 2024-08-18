@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "AutoScroll",
     "version": "1.0",
-    "description": "Automatically scrolls up to the next Instagram Reel or YouTube Short when the current one finishes.",
+    "description": "Automatically scrolls up while watching Instagram Reels and YouTube Shorts.",
     "permissions": [
       "activeTab",
       "scripting"

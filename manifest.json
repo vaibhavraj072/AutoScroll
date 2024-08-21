@@ -1,23 +1,24 @@
 {
-    "manifest_version": 3,
-    "name": "AutoScroll",
-    "version": "1.0",
-    "description": "Automatically scrolls up while watching Instagram Reels and YouTube Shorts.",
-    "permissions": [
-      "activeTab",
-      "scripting"
-    ],
-    "background": {
-      "service_worker": "background.js"
-    },
-    "content_scripts": [
-      {
-        "matches": ["*://www.instagram.com/*", "*://www.youtube.com/*"],
-        "js": ["contentScript.js"]
-      }
-    ],
-    "action": {
-      "default_popup": "popup.html"
+  "manifest_version": 3,
+  "name": "AutoScroll",
+  "version": "1.0",
+  "description": "Automatically scrolls up while watching Instagram Reels and YouTube Shorts.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs" 
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.instagram.com/*", "*://www.youtube.com/*"],
+      "js": ["contentScript.js"],
+      "run_at": "document_end"
     }
+  ],
+  "action": {
+    "default_popup": "popup.html"
   }
-  
+}

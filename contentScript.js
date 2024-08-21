@@ -13,18 +13,8 @@ function scrollUp() {
   window.scrollBy(0, -window.innerHeight); // Scroll up by one viewport height
 }
 
-function handleInstagramReels() {
-  // Instagram Reels: Detect video element and monitor for changes
-  videoElement = document.querySelector('video');
-  if (videoElement) {
-    videoElement.addEventListener('ended', () => {
-      scrollUp();
-    });
-  }
-}
-
-function handleYouTubeShorts() {
-  // YouTube Shorts: Detect video element and monitor for changes
+function handleVideo(platform) {
+  // Detect video element and monitor for changes
   videoElement = document.querySelector('video');
   if (videoElement) {
     videoElement.addEventListener('ended', () => {
@@ -35,10 +25,8 @@ function handleYouTubeShorts() {
 
 function initialize() {
   detectPlatform();
-  if (platform === 'instagram') {
-    handleInstagramReels();
-  } else if (platform === 'youtube') {
-    handleYouTubeShorts();
+  if (platform === 'instagram' || platform === 'youtube') {
+    handleVideo(platform);
   }
 }
 

@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Auto Scroll</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    button { padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
-  </style>
+  <title>Example Form</title>
 </head>
 <body>
-  <h2>Auto Scroll</h2>
-  <p>Automatically scrolls up while watching Reels and Shorts.</p>
-  <button id="toggleScroll">Toggle Scroll</button>
+  <form>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    
+    <button type="submit">Submit</button>
+  </form>
 
+  <!-- Using beforeunload instead of unload -->
   <script>
-    document.getElementById('toggleScroll').addEventListener('click', () => {
-      alert('Feature to toggle scrolling will be implemented!');
+    window.addEventListener('beforeunload', function(event) {
+      event.preventDefault();
+      event.returnValue = ''; // Required for prompting in some browsers
     });
   </script>
 </body>

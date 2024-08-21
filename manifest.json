@@ -1,24 +1,29 @@
 {
   "manifest_version": 3,
-  "name": "AutoScroll",
+  "name": "Auto Scroll for YouTube Shorts",
   "version": "1.0",
-  "description": "Automatically scrolls up while watching Instagram Reels and YouTube Shorts.",
-  "permissions": [
-    "activeTab",
-    "scripting",
-    "tabs" 
-  ],
+  "description": "Automatically scrolls up while watching YouTube Shorts.",
+  "permissions": ["activeTab", "storage"],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "sw.js"
   },
   "content_scripts": [
     {
-      "matches": ["*://www.instagram.com/*", "*://www.youtube.com/*"],
-      "js": ["contentScript.js"],
-      "run_at": "document_end"
+      "matches": ["*://www.youtube.com/shorts/*"],
+      "js": ["content.js"]
     }
   ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
   }
 }

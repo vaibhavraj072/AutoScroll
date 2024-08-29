@@ -3,7 +3,13 @@
   "name": "YouTube Shorts Auto-Scroll",
   "version": "1.0",
   "description": "Automatically scrolls up while watching YouTube Shorts.",
-  "permissions": ["scripting", "tabs"],
+  "permissions": [
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
   "background": {
     "service_worker": "background.js"
   },

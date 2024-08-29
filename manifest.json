@@ -2,18 +2,18 @@
   "manifest_version": 3,
   "name": "YouTube Shorts Auto-Scroll",
   "version": "1.0",
-  "description": "Automatically scrolls up on YouTube Shorts pages while videos are playing.",
+  "description": "Automatically scrolls up while watching YouTube Shorts.",
   "permissions": ["scripting", "tabs"],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["*://www.youtube.com/shorts/*"],
+      "matches": ["https://www.youtube.com/shorts/*"],
       "js": ["content.js"]
     }
   ],
   "icons": {
-    "48": "icon48.png"
+    "48": "icon.png"
   }
 }

@@ -1,17 +1,25 @@
 {
-  "name": "Smart Auto-Scroll",
+  "manifest_version": 3,
+  "name": "Auto Scroll YouTube Shorts",
   "version": "1.0",
-  "manifest_version": 2,
-  "description": "A Chrome extension that auto-scrolls to the next reel or short",
-  "permissions": ["<all_urls>", "tabs"],
+  "description": "Automatically scrolls through YouTube shorts.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
-      "matches": ["*://www.instagram.com/*", "*://www.youtube.com/*"],
-      "js": ["contentScript.js"]
+      "matches": ["*://www.youtube.com/shorts/*"],
+      "js": ["content.js"]
     }
   ],
-  "background": {
-    "scripts": ["backgroundScript.js"],
-    "persistent": false
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "images/image16.png"
+  },
+  "icons": {
+    "16": "images/image16.png",
+    "48": "images/image16.png",
+    "128": "images/image16.png"
   }
 }

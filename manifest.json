@@ -3,7 +3,7 @@
   "name": "Auto Scroll YouTube Shorts",
   "version": "1.0",
   "description": "Automatically scrolls through YouTube shorts.",
-  "permissions": ["storage"],
+  "permissions": ["storage", "activeTab"],
   "background": {
     "service_worker": "background.js"
   },
@@ -15,7 +15,11 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "images/image16.png"
+    "default_icon": {
+      "16": "images/image16.png",
+      "48": "images/image16.png",
+      "128": "images/image16.png"
+    }
   },
   "icons": {
     "16": "images/image16.png",

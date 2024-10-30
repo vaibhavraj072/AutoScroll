@@ -7,8 +7,9 @@
 ### Enhance Your Scrolling Experience
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/vaibhavraj072/AutoScroll)](.github/ISSUE_TEMPLATE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+<!--[![GitHub issues](https://img.shields.io/github/issues/vaibhavraj072/AutoScroll)](.github/ISSUE_TEMPLATE)-->
+
 
 </div>
 

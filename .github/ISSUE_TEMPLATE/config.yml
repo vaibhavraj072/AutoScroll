@@ -1,0 +1,20 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Documentation
+    url: https://github.com/vaibhavraj072/youtube-shorts-autoscroll#readme
+    about: Check our documentation before creating an issue
+  - name: 💬 Discussions
+    url: https://github.com/vaibhavraj072/youtube-shorts-autoscroll/discussions
+    about: Ask and answer questions here
+  - name: 🤝 Contributing Guidelines
+    url: https://github.com/vaibhavraj072/youtube-shorts-autoscroll/blob/main/CONTRIBUTING.md
+    about: Review our contributing guidelines
+  - name: 🔒 Security Policy
+    url: https://github.com/vaibhavraj072/youtube-shorts-autoscroll/security/policy
+    about: Review our security policy
+  - name: 📝 Feature Requests
+    url: https://github.com/vaibhavraj072/youtube-shorts-autoscroll/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D+
+    about: Suggest new features
+  - name: 🐛 Bug Reports
+    url: https://github.com/vaibhavraj072/youtube-shorts-autoscroll/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D+
+    about: Report a bug

@@ -1,63 +1,80 @@
-let isScrolling = false;
-const toggle = document.getElementById("toggle");
-const status = document.getElementById("status");
-const speedInput = document.getElementById("speed");
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleSwitch = document.getElementById('toggleSwitch');
+    const statusText = document.getElementById('statusText');
 
-// Initialize state from storage
-chrome.storage.local.get(["isScrolling", "speed"], (result) => {
-    isScrolling = result.isScrolling || false;
-    updateButtonState();
-    speedInput.value = result.speed || 3;
-});
+    // Function to update the status display
+    function updateStatus(enabled) {
+        statusText.textContent = `Status: ${enabled ? 'Enabled' : 'Disabled'}`;
+        statusText.className = `status ${enabled ? 'enabled' : 'disabled'}`;
+        
+        // Update the toggle switch state
+        toggleSwitch.checked = enabled;
+        
+        // Save the state
+        chrome.storage.sync.set({ autoScrollEnabled: enabled });
+    }
 
-// Toggle button click handler
-toggle.addEventListener("click", async () => {
-    isScrolling = !isScrolling;
-    updateButtonState();
-    
-    // Save state
-    await chrome.storage.local.set({ 
-        isScrolling: isScrolling,
-        speed: parseInt(speedInput.value)
+    // Initialize toggle state from storage
+    chrome.storage.sync.get('autoScrollEnabled', (data) => {
+        updateStatus(data.autoScrollEnabled || false);
     });
 
-    // Send message to content script
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    if (tab && tab.url.includes("youtube.com")) {
-        chrome.tabs.sendMessage(tab.id, {
-            command: "toggleScroll",
-            isScrolling: isScrolling,
-            speed: parseInt(speedInput.value)
+    // Handle toggle changes
+    toggleSwitch.addEventListener('change', () => {
+        const isEnabled = toggleSwitch.checked;
+        updateStatus(isEnabled);
+
+        // Get current active tab
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            if (tabs[0].url.includes('youtube.com')) {
+                // Send message to content script
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    action: 'toggleAutoScroll',
+                    enabled: isEnabled
+                });
+                
+                // Reload the tab
+                chrome.tabs.reload(tabs[0].id);
+            }
         });
-    }
+    });
 });
 
-// Speed input handler
-speedInput.addEventListener("change", async () => {
-    if (speedInput.value < 1) speedInput.value = 1;
-    if (speedInput.value > 10) speedInput.value = 10;
-    
-    await chrome.storage.local.set({ speed: parseInt(speedInput.value) });
-    
-    if (isScrolling) {
-        const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-        if (tab && tab.url.includes("youtube.com")) {
-            chrome.tabs.sendMessage(tab.id, {
-                command: "updateSpeed",
-                speed: parseInt(speedInput.value)
-            });
+// content.js
+let scrollInterval = null;
+const SCROLL_INTERVAL = 5000; // 5 seconds
+
+function startAutoScroll() {
+    if (!scrollInterval) {
+        scrollInterval = setInterval(() => {
+            window.scrollBy(0, window.innerHeight);
+        }, SCROLL_INTERVAL);
+        console.log('Auto-scroll started');
+    }
+}
+
+function stopAutoScroll() {
+    if (scrollInterval) {
+        clearInterval(scrollInterval);
+        scrollInterval = null;
+        console.log('Auto-scroll stopped');
+    }
+}
+
+// Listen for messages from popup
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === 'toggleAutoScroll') {
+        if (request.enabled) {
+            startAutoScroll();
+        } else {
+            stopAutoScroll();
         }
     }
 });
 
-function updateButtonState() {
-    if (isScrolling) {
-        toggle.textContent = "Stop";
-        toggle.classList.add("active");
-        status.textContent = "Status: Running";
-    } else {
-        toggle.textContent = "Start";
-        toggle.classList.remove("active");
-        status.textContent = "Status: Stopped";
+// Check initial state when page loads
+chrome.storage.sync.get('autoScrollEnabled', (data) => {
+    if (data.autoScrollEnabled) {
+        startAutoScroll();
     }
-}
+});

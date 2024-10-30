@@ -1,33 +1,55 @@
-Welcome to the Auto Scroll Project! 🎉
-Thank you for taking the time to contribute! We’re excited to have you here and look forward to collaborating on this project. Whether you're here to fix a bug, add a feature, or improve documentation, every contribution makes a difference.
+# 🎉 Welcome to the Auto Scroll Project! 🎉
 
-About the Project
-This Auto Scroll project is designed to enhance user experience by automatically scrolling through reels and YouTube Shorts videos, making it easier to browse content hands-free. If you're new to the project, feel free to check out the README file for an overview of features and functionalities.
+Thank you for stopping by and considering a contribution to our project! We’re excited to have you here and can’t wait to see how you’ll help make this project even better. From fixing bugs to adding new features, every contribution counts!
 
-Contributing Guidelines 📜
-To make the process smooth for everyone, please take a moment to read through the following guidelines:
+## 📜 About the Project
 
-Open an Issue First: If you’re planning on working on a new feature or a major change, please open an issue first to discuss it. This helps avoid duplicate work and ensures alignment with project goals.
+Our Auto Scroll extension enhances user experience by automatically scrolling through reels and YouTube Shorts videos, providing a hands-free browsing experience. If you’re new to the project, start with our [README file](./README.md) for a detailed overview of features and functionalities.
 
-Fork the Repository: Make sure to fork the repository before making any changes. This allows you to freely experiment with your own copy.
+---
 
-Create a New Branch: Make a new branch for each feature or bug fix to keep changes organized and easy to review. Use descriptive branch names like fix-autoscroll-delay or add-settings-menu.
+## 🚀 Getting Started
 
-Write Descriptive Commit Messages: Each commit should clearly explain what was changed and why. This helps reviewers and future contributors understand your work.
+Here's a quick guide to help you get up and running with contributions:
 
-Ensure Code Quality: Follow any coding standards mentioned in the README. Keep your code clean and comment where necessary.
+- **[Project README](./README.md)**: A full breakdown of the project.
+- **[Installation Guide](./INSTALL.md)**: Get set up in minutes.
+- **[Contribution Guidelines](./CONTRIBUTING.md)**: Important rules and tips.
 
-Pull Request Template: Use the PR template provided in the .github folder to fill in details about your changes. It helps reviewers understand the context and test your work effectively.
+---
 
-Getting Started 🛠️
-If you're new to this project, check out these resources to help you get up and running quickly:
+## 🛠️ How to Contribute
 
-Project README
-Installation Guide
-Contribution Guidelines
-Questions? 🤔
-Don’t hesitate to reach out! If you need clarification or assistance, feel free to open a discussion or comment on the relevant issue.
+Ready to jump in? Check out these guidelines to make your contribution process smooth and effective:
 
-Thank you again for your contribution—let’s make something awesome together!
+1. **Open an Issue First**  
+   If you're planning a new feature or a major change, open an issue to discuss it with us. This helps prevent duplicate work and keeps everyone aligned.
 
-Happy coding! 🚀
+2. **Fork & Branch**  
+   - **Fork** the repo and create a new branch for each feature or bug fix.
+   - Use descriptive branch names like `fix-autoscroll-delay` or `add-settings-menu`.
+
+3. **Write Clear Commits**  
+   Descriptive commit messages help reviewers understand what was changed and why. Great messages make the project history easier to follow!
+
+4. **Code Quality**  
+   Keep code clean and follow any standards specified in the README. Adding comments where needed also makes the project more maintainable.
+
+5. **Use the PR Template**  
+   Complete the pull request template found in `.github` with details about your changes. It speeds up the review process and ensures nothing important is missed.
+
+---
+
+## 🤔 Got Questions?
+
+We’re here to help! If you need clarification or run into any issues, feel free to:
+
+- Open a [Discussion](./discussions) or comment on the relevant issue.
+- Tag us in your PR for specific feedback.
+
+Thank you again for your interest in contributing—together, let's build something awesome! 🎉
+
+Happy coding! 🖥️✨
+
+---
+

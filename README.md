@@ -2,7 +2,7 @@
   
 #  AutoScroll
 
-![AutoScroll Logo](logo.svg)
+![AutoScroll Logo](images/icon48.png)
 
 ### Enhance Your Scrolling Experience
 

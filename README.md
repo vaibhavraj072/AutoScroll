@@ -81,6 +81,6 @@ Give a ⭐️ if this project helped you!
 
 <div align="center">
 
-**Made with ❤️ by [Vaibhav Raj](https://github.com/vaibhavraj072)**
+**Made with ❤️ by [Vaibhav Raj](https://vaibhavraj072.github.io/portfolio_vaibhav/)**
 
 </div>
